@@ -1,0 +1,31 @@
+services:
+
+  store-assistant-web:
+    image: bisand/bogentech-web:latest
+    volumes:
+      # Data persistency
+      - /mnt/docker/bogentech/web/config:/app/config
+      - /mnt/docker/bogentech/web/logs:/app/logs
+    restart: always
+    networks:
+      - 'backend-network'
+      - 'external'
+    environment:
+      - NUXT_NEXTAUTH_SECRET=${NUXT_NEXTAUTH_SECRET}
+      - NUXT_SESSION_PASSWORD=${NUXT_SESSION_PASSWORD}
+
+      - NUXT_OAUTH_OKTA_CLIENT_ID=${NUXT_OAUTH_OKTA_CLIENT_ID}
+      - NUXT_OAUTH_OKTA_CLIENT_SECRET=${NUXT_OAUTH_OKTA_CLIENT_SECRET}
+      - NUXT_OAUTH_OKTA_DOMAIN=${NUXT_OAUTH_OKTA_DOMAIN}
+      - NUXT_OAUTH_OKTA_AUTHORIZATION_SERVER=${NUXT_OAUTH_OKTA_AUTHORIZATION_SERVER}
+      - NUXT_OAUTH_OKTA_REDIRECT_URL=${NUXT_OAUTH_OKTA_REDIRECT_URL}
+      - NUXT_OAUTH_OKTA_AUDIENCE=${NUXT_OAUTH_OKTA_AUDIENCE}
+    deploy:
+      mode: replicated
+      replicas: 1
+
+networks:
+  external:
+    driver: overlay
+  backend-network:
+    external: true

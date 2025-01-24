@@ -14,7 +14,7 @@
 		"source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sed -i 's/ZSH_THEME=.*/ZSH_THEME=\"bira\"/' ~/.zshrc",
+	"postCreateCommand": "sed -i 's/ZSH_THEME=.*/ZSH_THEME=\"bira\"/' ~/.zshrc && git config --global gpg.format ssh && git config --global user.signingkey ~/.ssh/id_rsa.pub",
 
 	// Configure tool-specific properties.
 	"customizations": {

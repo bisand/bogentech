@@ -73,7 +73,7 @@ onMounted(() => {
         type="text"
         placeholder="Fullt navn"
         required
-        class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="w-full px-4 py-3 border-2 placeholder:text-gray-400 dark:placeholder:text-gray-600 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:bg-gray-800 dark:border-gray-500 dark:focus:border-gray-700 dark:ring-gray-500"
         name="name"
       />
       <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
@@ -88,7 +88,7 @@ onMounted(() => {
         placeholder="e-postadresse"
         name="email"
         required
-        class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="w-full px-4 py-3 border-2 placeholder:text-gray-400 dark:placeholder:text-gray-600 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:bg-gray-800 dark:border-gray-500 dark:focus:border-gray-700 dark:ring-gray-500"
       />
       <div class="empty-feedback text-red-400 text-sm mt-1">
         Vennligst skriv inn e-postadresse.
@@ -102,7 +102,7 @@ onMounted(() => {
         name="message"
         required
         placeholder="Din melding"
-        class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="w-full px-4 py-3 border-2 placeholder:text-gray-400 dark:placeholder:text-gray-600 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:bg-gray-800 dark:border-gray-500 dark:focus:border-gray-700 dark:ring-gray-500"
       ></textarea>
       <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
         Skriv en melding.

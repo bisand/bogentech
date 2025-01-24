@@ -12,7 +12,7 @@
       <h2 class="mt-10 text-l lg:text-xl xl:text-2xl font-bold lg:tracking-tight">
         Alt starter med en idé!
       </h2>
-      <p class="text-lg mt-1 text-slate-600 max-w-xl">
+      <p class="text-lg mt-1 max-w-xl">
         En idé har kraften til å forandre måten vi lever, jobber og skaper på. Når den kombineres med riktig kompetanse, god rådgivning og målrettet utvikling, kan den vokse til
         noe stort. Gjennom investering i både mennesker og visjoner blir det mulig å ta idéer fra tanke til virkelighet. Det er slik innovasjon blir til, og det er slik fremtiden
         formes.</p>

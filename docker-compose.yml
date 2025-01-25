@@ -1,6 +1,6 @@
 services:
 
-  store-assistant-web:
+  bogentech-web:
     image: bisand/bogentech-web:latest
     volumes:
       # Data persistency
@@ -9,23 +9,34 @@ services:
     restart: always
     networks:
       - 'backend-network'
-      - 'external'
+      - 'internal'
     environment:
-      - NUXT_NEXTAUTH_SECRET=${NUXT_NEXTAUTH_SECRET}
       - NUXT_SESSION_PASSWORD=${NUXT_SESSION_PASSWORD}
 
-      - NUXT_OAUTH_OKTA_CLIENT_ID=${NUXT_OAUTH_OKTA_CLIENT_ID}
-      - NUXT_OAUTH_OKTA_CLIENT_SECRET=${NUXT_OAUTH_OKTA_CLIENT_SECRET}
-      - NUXT_OAUTH_OKTA_DOMAIN=${NUXT_OAUTH_OKTA_DOMAIN}
-      - NUXT_OAUTH_OKTA_AUTHORIZATION_SERVER=${NUXT_OAUTH_OKTA_AUTHORIZATION_SERVER}
-      - NUXT_OAUTH_OKTA_REDIRECT_URL=${NUXT_OAUTH_OKTA_REDIRECT_URL}
-      - NUXT_OAUTH_OKTA_AUDIENCE=${NUXT_OAUTH_OKTA_AUDIENCE}
+      - NUXT_KINDE_PASSWORD=${NUXT_KINDE_PASSWORD}
+      - NUXT_KINDE_CLIENT_ID=${NUXT_KINDE_CLIENT_ID}
+      - NUXT_KINDE_CLIENT_SECRET=${NUXT_KINDE_CLIENT_SECRET}
+      - NUXT_KINDE_AUTH_DOMAIN=${NUXT_KINDE_AUTH_DOMAIN}
+      - NUXT_KINDE_REDIRECT_URL=${NUXT_KINDE_REDIRECT_URL}
+      - NUXT_KINDE_LOGOUT_REDIRECT_URL=${NUXT_KINDE_LOGOUT_REDIRECT_URL}
+      - NUXT_KINDE_POST_LOGIN_REDIRECT_URL=${NUXT_KINDE_POST_LOGIN_REDIRECT_URL}
+    deploy:
+      mode: replicated
+      replicas: 3
+
+  bogentech-redis:
+    image: redis:latest
+    networks:
+      - 'internal'
+    restart: always
     deploy:
       mode: replicated
       replicas: 1
 
+
 networks:
-  external:
+  internal:
     driver: overlay
+    internal: true
   backend-network:
     external: true

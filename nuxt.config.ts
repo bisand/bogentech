@@ -8,5 +8,20 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
+    "@nuxtjs/kinde",
   ],
+  runtimeConfig: {
+    redis: { // Default values
+      host: process.env.NUXT_REDIS_HOST || "localhost",
+      port: process.env.NUXT_REDIS_PORT ? parseInt(process.env.NUXT_REDIS_PORT, 10) : 6379,
+      /* other redis connector options */
+    }
+  },
+  kinde: {
+    debug: true,
+    handlers: {
+      callback: "~/server/api/auth/callback.get.ts",
+      login: "~/server/api/auth/login.get.ts",
+    }
+  },
 });

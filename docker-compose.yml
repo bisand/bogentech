@@ -20,6 +20,11 @@ services:
       - NUXT_KINDE_REDIRECT_URL=${NUXT_KINDE_REDIRECT_URL}
       - NUXT_KINDE_LOGOUT_REDIRECT_URL=${NUXT_KINDE_LOGOUT_REDIRECT_URL}
       - NUXT_KINDE_POST_LOGIN_REDIRECT_URL=${NUXT_KINDE_POST_LOGIN_REDIRECT_URL}
+
+      - NUXT_REDIS_HOST=${NUXT_REDIS_HOST}
+      - NUXT_REDIS_PORT=${NUXT_REDIS_PORT}
+
+      - NUXT_SERVER_ID=bogentech-web-{{.Task.Slot}}
     deploy:
       mode: replicated
       replicas: 3
@@ -33,10 +38,19 @@ services:
       mode: replicated
       replicas: 1
 
+  bogentech-redis-web:
+    image: marian/rebrow:latest
+    networks:
+      - 'internal'
+    ports:
+      - "5001:5001"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
 
 networks:
   internal:
     driver: overlay
-    internal: true
   backend-network:
     external: true

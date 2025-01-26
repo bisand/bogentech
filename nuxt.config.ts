@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { type RedisOptions } from "unstorage/drivers/redis";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
@@ -10,18 +11,20 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxtjs/kinde",
   ],
+  nitro: {
+  },
   runtimeConfig: {
     redis: { // Default values
       host: process.env.NUXT_REDIS_HOST || "localhost",
       port: process.env.NUXT_REDIS_PORT ? parseInt(process.env.NUXT_REDIS_PORT, 10) : 6379,
       /* other redis connector options */
-    }
+    },
   },
   kinde: {
     debug: true,
     handlers: {
-      callback: "~/server/api/auth/callback.get.ts",
-      login: "~/server/api/auth/login.get.ts",
+      login: "~/server/api/login.ts",
+      callback: "~/server/api/callback.ts",
     }
   },
 });

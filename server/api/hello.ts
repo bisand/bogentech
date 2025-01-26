@@ -14,6 +14,6 @@ export default defineEventHandler(async (event) => {
     }
 
     return {
-        hello: `world (${foo})`
+        hello: `world from ${process.env.NUXT_SERVER_ID} (${foo})`
     }
 })

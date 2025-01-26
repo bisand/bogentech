@@ -1,12 +1,12 @@
-import { createSessionManager } from '~/shared/sessionManager'
+import { defineEventHandler, getRequestURL, sendRedirect } from 'h3'
+import { useRuntimeConfig } from '#imports'
 
 const config = useRuntimeConfig()
 
 export default defineEventHandler(async (event) => {
   const sessionManager = await createSessionManager(event)
-  const client = event.context.kinde
 
-  await client.handleRedirectToApp(
+  await getKindeClient().handleRedirectToApp(
     sessionManager,
     getRequestURL(event),
   )

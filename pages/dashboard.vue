@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 definePageMeta({
   layout: "landing",
-  middleware: ['auth-logged-in'],
+  middleware: ['auth-logged-in', 'test'],
 })
 const { data } = await useFetch('/api/hello')
 </script>

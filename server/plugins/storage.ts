@@ -8,6 +8,7 @@ export default defineNitroPlugin(() => {
       base: 'redis',
       host: useRuntimeConfig().redis.host,
       port: useRuntimeConfig().redis.port,
+      ttl: 60 * 60 * 24, // 24 hours
       /* other redis connector options */
     })
 

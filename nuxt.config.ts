@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     },
   },
   kinde: {
-    debug: true,
+    middleware: false,
     handlers: {
       login: "~/server/api/login.ts",
       callback: "~/server/api/callback.ts",

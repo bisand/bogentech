@@ -34,7 +34,7 @@ export async function createSessionManager(event: H3Event): Promise<SessionManag
       //   })
       // }
       // else {
-      storage.setItem(`${sessionId}-${itemKey}`, itemValue as string)
+      storage.setItem(`${sessionId}-${itemKey}`, itemValue as string, { ttl: 60 * 60 * 12 })
       // memorySession[itemKey] = itemValue
       // }
     },

@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <LandingContainer>
+  <LandingContainer class="mt-32 px-10">
     <LandingSectionhead>
       <template v-slot:title>Kontakt</template>
       <template v-slot:desc>Vi er her for å hjelpe til.</template>

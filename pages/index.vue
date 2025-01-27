@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <LandingContainer>
+  <LandingContainer class="mt-32 px-10">
     <LandingHero></LandingHero>
     <LandingFeatures></LandingFeatures>
     <LandingLogos></LandingLogos>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
-// colorMode.preference = 'system'
 console.log(colorMode.preference)
 </script>
 <template>

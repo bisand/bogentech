@@ -8,10 +8,12 @@ interface Props {
   [x: string]: any;
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   size: "lg",
   styleName: "primary",
 });
+
+const styleName = props.styleName as keyof typeof styles;
 
 const sizes = {
   lg: "px-5 py-2.5",
@@ -20,7 +22,7 @@ const sizes = {
 
 const styles = {
   outline: "bg-white border-2 border-black hover:bg-gray-100 text-black",
-  primary: "bg-black text-white hover:bg-gray-800  border-2 border-transparent",
+  primary: "bg-black text-white hover:bg-gray-800 border-2 border-transparent dark:bg-stone-600 dark:hover:bg-stone-500 dark:text-gray-200",
   inverted: "bg-white text-black border-2 border-transparent",
   muted: "bg-gray-100 hover:bg-gray-200 border-2 border-transparent",
 };
@@ -32,7 +34,7 @@ const styles = {
     :class="[
       'rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200',
       block && 'w-full',
-      sizes[size],
+      sizes[props.size],
       styles[styleName],
     ]"
     ><slot />

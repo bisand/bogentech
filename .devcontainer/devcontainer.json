@@ -31,7 +31,8 @@
 				"GitHub.vscode-pull-request-github",
 				"ms-vscode.vscode-github-issue-notebooks",
 				"VisualStudioExptTeam.intellicode-api-usage-examples",
-				"bradlc.vscode-tailwindcss"
+				"bradlc.vscode-tailwindcss",
+				"antfu.iconify"
 			]
 		}
 	}

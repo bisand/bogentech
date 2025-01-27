@@ -27,6 +27,9 @@ export BUILD_NUMBER=$NEW_VERSION
 # Write the new version back to the VERSION file
 echo "$NEW_VERSION" > VERSION
 
+# Update the version in the package.json file
+jq ".version = \"$NEW_VERSION\"" package.json > temp.json && mv temp.json package.json
+
 # Build the Docker image. One for the API and one for the client
 docker build --file Dockerfile --build-arg VERSION=$NEW_VERSION -t bisand/bogentech-web:$NEW_VERSION -t bisand/bogentech-web:latest .
 

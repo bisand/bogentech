@@ -72,8 +72,8 @@ const open = ref(false);
         </ul>
         <div class="lg:hidden flex items-center mt-3 gap-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50">
           <ColorModeButton />
-          <LandingLink v-if="!auth.loggedIn" href="/api/login" block size="md">Logg inn</LandingLink>
-          <LandingLink v-if="auth.loggedIn" href="/api/logout" block size="md">Logg ut</LandingLink>
+          <LandingLink v-if="!auth.loggedIn" href="/api/login" block size="md" external>Logg inn</LandingLink>
+          <LandingLink v-if="auth.loggedIn" href="/api/logout" block size="md" external>Logg ut</LandingLink>
         </div>
       </nav>
       <div>
